@@ -1,0 +1,52 @@
+auto: true
+server: true
+safe: true
+lsi: false
+pygments: false
+markdown: rdiscount
+permalink: /:categories/:title/
+exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile"]
+
+title: Hi kooker
+tagline: GitHub kooker 的个人网站 
+author:
+  name: kooker
+  full_name: 掀起你的头盖来
+  bio: Github 使用过国内外各种 Blog PHP 程序后，2013年正式使用 Jekyll 平台。
+  email: admin@kooker.jp
+production_url: http://cdn.kooker.jp
+
+JB:
+  version: 0.2.13
+
+  BASE_PATH: false
+  ASSET_PATH: false
+
+  archive_path: /pages/archive.html
+  categories_path: /pages/categories.html
+  tags_path: /pages/tags.html
+  sitemap_path: /sitemap.xml
+  RSS_path: /atom.xml
+
+  comments :
+    provider : duoshuo
+    duoshuo :
+      short_name : cdnkooker
+
+  analytics:
+    provider: cnzz
+    cnzz:
+      server_id: 96
+      web_id: 4924032
+
+  sharing:
+    provider: false
+
+  tags_list:
+    provider: custom
+
+  posts_collate:
+    provider: custom
+
+  pages_list:
+    provider: custom

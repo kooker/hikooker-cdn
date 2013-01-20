@@ -1,0 +1,22 @@
+---
+layout: page
+title: Tags
+slug: tags
+group: menu
+---
+{% include JB/setup %}
+
+<p>
+  {% for tag in site.tags %}
+    <a id="{{ tag[0] }}-ref" href="#{{ tag[0] }}-ref" title="{{ tag[0] | escape }}" class="item-node">{{ tag[0] }}<sup>{{ tag[1].size }}</sup></a>
+  {% endfor %}
+</p>
+
+
+{% for tag in site.tags %}
+  <h2 id="{{ tag[0] }}-ref">{{ tag[0] }}<sup>{{ tag[1].size }}</sup></h2>
+  <ul>
+    {% assign pages_list = tag[1] %}
+    {% include JB/pages_list %}
+  </ul>
+{% endfor %}

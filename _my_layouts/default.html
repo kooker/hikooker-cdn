@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+<meta name="author" content="{{ site.author.full_name }}" />
+<link rel="alternate" type="application/rss+xml" title="订阅Hi kooker" href="{{ site.production_url }}/atom.xml" />
+<script type="text/javascript" src="http://cdn.yeeyan.com/js/jquery-1.3.2.min.js"></script> 
+<link href="http://cdn.yeeyan.com/css/select.css?2" rel="stylesheet" type="text/css"  />
+</head>
+<body>
+        <div class="s_wrapper">
+            <div class="s_hearder" style="position:relative;">
+                <a href="{{ HOME_PATH }}" rel="nofollow" title="{{ site.tagline }}">{{ site.title }}</a>
+                <span class="nav"><a href="{{ HOME_PATH }}" rel="nofollow" title="首页">Home</a>
+          {% assign pages_list = site.pages %}
+          {% assign group = 'menu' %}
+          {% include JB/pages_list %}</span>
+					            </div>
+<div class="sa_mark"><div class="sa_bookmark sa_bookmark_right">
+	<a title="分享到新浪微博" class="share_1" href="javascript:void(0)" onclick="window.open('http://v.t.sina.com.cn/share/share.php?url='+encodeURI(document.location)+'&amp;appkey=1960942321&amp;title='+encodeURI(document.title) , 'newwindow', 'height=330,width=550,top=' + (screen.height - 280) / 2 + ',left=' + (screen.width - 550) / 2 + ', toolbar=no, menubar=no, scrollbars=no,resizable=yes,location=no, status=no')"> </a>
+	<a href="javascript:void(0)" onclick="window.open('http://v.t.qq.com/share/share.php?title='+encodeURIComponent(document.title)+'&amp;url='+encodeURIComponent(location.href)+'&amp;source=bookmark','_blank','width=610,height=350')" title="分享到QQ微博"> </a>
+	<a href="javascript:void(function(){var%20d=document,e=encodeURIComponent,s1=window.getSelection,s2=d.getSelection,s3=d.selection,s=s1?s1():s2?s2():s3?s3.createRange().text:'',r='http://www.douban.com/recommend/?url='+e(d.location.href)+'&amp;title='+e(d.title)+'&amp;sel='+e(s)+'&amp;v=1',x=function(){if(!window.open(r,'douban','toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330'))location.href=r+'&amp;r=1'};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})()" title="分享到豆瓣"> </a>
+	<a class="favorite " href="javascript:void(0)" onclick="addfa(this);" title="收藏"></a>
+
+</div></div>
+<div class="hidden" style="display:none" id="show_more">
+	<a href="javascript:void(0)" onclick="shareme('baiducang','341230','','%E6%9C%AC%E5%B9%B4%E5%BA%A6%E6%9C%80%E6%83%8A%E4%BA%BA%E7%9A%84%E7%A7%91%E5%AD%A6%E5%9B%BE%E5%83%8F','%E5%9C%A8%E6%9C%89%E7%9D%80%E4%B8%93%E4%B8%9A%E8%AF%AD%E8%A8%80%E4%B8%8E%E4%B8%A5%E8%B0%A8%E5%BD%A2%E5%BC%8F%E7%9A%84%E7%A7%91%E5%AD%A6%E7%9A%84%E8%83%8C%E5%90%8E%EF%BC%8C%E6%9C%89%E7%9D%80%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E5%8D%B4%E5%AE%B9%E6%98%93%E5%BF%98%E8%AE%B0%E7%9A%84%E5%8E%9F%E5%88%99%EF%BC%9A%E7%A7%91%E5%AD%A6%E6%98%AF%E6%8E%A2%E7%B4%A2%E4%B8%96%E7%95%8C%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%8C%E8%80%8C%E6%88%91%E4%BB%AC%E7%9A%84%E4%B8%96%E7%95%8C%E6%98%AF%E4%B8%80%E4%B8%AA%E5%A5%87%E5%A6%99%E7%9A%84%E4%B8%96%E7%95%8C%E3%80%82')" class="share_5" title="分享到百度收藏"></a>
+	<a href="javascript:void(0)" onclick="shareme('delicious','341230','','%E6%9C%AC%E5%B9%B4%E5%BA%A6%E6%9C%80%E6%83%8A%E4%BA%BA%E7%9A%84%E7%A7%91%E5%AD%A6%E5%9B%BE%E5%83%8F','%E5%9C%A8%E6%9C%89%E7%9D%80%E4%B8%93%E4%B8%9A%E8%AF%AD%E8%A8%80%E4%B8%8E%E4%B8%A5%E8%B0%A8%E5%BD%A2%E5%BC%8F%E7%9A%84%E7%A7%91%E5%AD%A6%E7%9A%84%E8%83%8C%E5%90%8E%EF%BC%8C%E6%9C%89%E7%9D%80%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E5%8D%B4%E5%AE%B9%E6%98%93%E5%BF%98%E8%AE%B0%E7%9A%84%E5%8E%9F%E5%88%99%EF%BC%9A%E7%A7%91%E5%AD%A6%E6%98%AF%E6%8E%A2%E7%B4%A2%E4%B8%96%E7%95%8C%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%8C%E8%80%8C%E6%88%91%E4%BB%AC%E7%9A%84%E4%B8%96%E7%95%8C%E6%98%AF%E4%B8%80%E4%B8%AA%E5%A5%87%E5%A6%99%E7%9A%84%E4%B8%96%E7%95%8C%E3%80%82')" class="share_6" title="分享到Delicious"></a>
+	<a href="javascript:void(0)" onclick="shareme('xianguo','341230','','%E6%9C%AC%E5%B9%B4%E5%BA%A6%E6%9C%80%E6%83%8A%E4%BA%BA%E7%9A%84%E7%A7%91%E5%AD%A6%E5%9B%BE%E5%83%8F','%E5%9C%A8%E6%9C%89%E7%9D%80%E4%B8%93%E4%B8%9A%E8%AF%AD%E8%A8%80%E4%B8%8E%E4%B8%A5%E8%B0%A8%E5%BD%A2%E5%BC%8F%E7%9A%84%E7%A7%91%E5%AD%A6%E7%9A%84%E8%83%8C%E5%90%8E%EF%BC%8C%E6%9C%89%E7%9D%80%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E5%8D%B4%E5%AE%B9%E6%98%93%E5%BF%98%E8%AE%B0%E7%9A%84%E5%8E%9F%E5%88%99%EF%BC%9A%E7%A7%91%E5%AD%A6%E6%98%AF%E6%8E%A2%E7%B4%A2%E4%B8%96%E7%95%8C%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%8C%E8%80%8C%E6%88%91%E4%BB%AC%E7%9A%84%E4%B8%96%E7%95%8C%E6%98%AF%E4%B8%80%E4%B8%AA%E5%A5%87%E5%A6%99%E7%9A%84%E4%B8%96%E7%95%8C%E3%80%82')" class="share_7" title="分享到鲜果"></a>
+	<a href="javascript:void(0)" onclick="shareme('zhuaxia','341230','','%E6%9C%AC%E5%B9%B4%E5%BA%A6%E6%9C%80%E6%83%8A%E4%BA%BA%E7%9A%84%E7%A7%91%E5%AD%A6%E5%9B%BE%E5%83%8F','%E5%9C%A8%E6%9C%89%E7%9D%80%E4%B8%93%E4%B8%9A%E8%AF%AD%E8%A8%80%E4%B8%8E%E4%B8%A5%E8%B0%A8%E5%BD%A2%E5%BC%8F%E7%9A%84%E7%A7%91%E5%AD%A6%E7%9A%84%E8%83%8C%E5%90%8E%EF%BC%8C%E6%9C%89%E7%9D%80%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E5%8D%B4%E5%AE%B9%E6%98%93%E5%BF%98%E8%AE%B0%E7%9A%84%E5%8E%9F%E5%88%99%EF%BC%9A%E7%A7%91%E5%AD%A6%E6%98%AF%E6%8E%A2%E7%B4%A2%E4%B8%96%E7%95%8C%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%8C%E8%80%8C%E6%88%91%E4%BB%AC%E7%9A%84%E4%B8%96%E7%95%8C%E6%98%AF%E4%B8%80%E4%B8%AA%E5%A5%87%E5%A6%99%E7%9A%84%E4%B8%96%E7%95%8C%E3%80%82')" class="share_8" title="分享到抓虾"></a>
+	<a href="javascript:void(0)" onclick="shareme('twitter','341230','','%E6%9C%AC%E5%B9%B4%E5%BA%A6%E6%9C%80%E6%83%8A%E4%BA%BA%E7%9A%84%E7%A7%91%E5%AD%A6%E5%9B%BE%E5%83%8F','%E5%9C%A8%E6%9C%89%E7%9D%80%E4%B8%93%E4%B8%9A%E8%AF%AD%E8%A8%80%E4%B8%8E%E4%B8%A5%E8%B0%A8%E5%BD%A2%E5%BC%8F%E7%9A%84%E7%A7%91%E5%AD%A6%E7%9A%84%E8%83%8C%E5%90%8E%EF%BC%8C%E6%9C%89%E7%9D%80%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E5%8D%B4%E5%AE%B9%E6%98%93%E5%BF%98%E8%AE%B0%E7%9A%84%E5%8E%9F%E5%88%99%EF%BC%9A%E7%A7%91%E5%AD%A6%E6%98%AF%E6%8E%A2%E7%B4%A2%E4%B8%96%E7%95%8C%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%8C%E8%80%8C%E6%88%91%E4%BB%AC%E7%9A%84%E4%B8%96%E7%95%8C%E6%98%AF%E4%B8%80%E4%B8%AA%E5%A5%87%E5%A6%99%E7%9A%84%E4%B8%96%E7%95%8C%E3%80%82')" class="share_9" title="分享到Twitter"></a>
+	<a href="javascript:void(0)" onclick="shareme('douban','341230','','%E6%9C%AC%E5%B9%B4%E5%BA%A6%E6%9C%80%E6%83%8A%E4%BA%BA%E7%9A%84%E7%A7%91%E5%AD%A6%E5%9B%BE%E5%83%8F','%E5%9C%A8%E6%9C%89%E7%9D%80%E4%B8%93%E4%B8%9A%E8%AF%AD%E8%A8%80%E4%B8%8E%E4%B8%A5%E8%B0%A8%E5%BD%A2%E5%BC%8F%E7%9A%84%E7%A7%91%E5%AD%A6%E7%9A%84%E8%83%8C%E5%90%8E%EF%BC%8C%E6%9C%89%E7%9D%80%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E5%8D%B4%E5%AE%B9%E6%98%93%E5%BF%98%E8%AE%B0%E7%9A%84%E5%8E%9F%E5%88%99%EF%BC%9A%E7%A7%91%E5%AD%A6%E6%98%AF%E6%8E%A2%E7%B4%A2%E4%B8%96%E7%95%8C%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%8C%E8%80%8C%E6%88%91%E4%BB%AC%E7%9A%84%E4%B8%96%E7%95%8C%E6%98%AF%E4%B8%80%E4%B8%AA%E5%A5%87%E5%A6%99%E7%9A%84%E4%B8%96%E7%95%8C%E3%80%82')" class="share_10" title="分享到豆瓣"></a>
+	<a href="javascript:void(0)" onclick="shareme('sohubai','341230','','%E6%9C%AC%E5%B9%B4%E5%BA%A6%E6%9C%80%E6%83%8A%E4%BA%BA%E7%9A%84%E7%A7%91%E5%AD%A6%E5%9B%BE%E5%83%8F','%E5%9C%A8%E6%9C%89%E7%9D%80%E4%B8%93%E4%B8%9A%E8%AF%AD%E8%A8%80%E4%B8%8E%E4%B8%A5%E8%B0%A8%E5%BD%A2%E5%BC%8F%E7%9A%84%E7%A7%91%E5%AD%A6%E7%9A%84%E8%83%8C%E5%90%8E%EF%BC%8C%E6%9C%89%E7%9D%80%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E5%8D%B4%E5%AE%B9%E6%98%93%E5%BF%98%E8%AE%B0%E7%9A%84%E5%8E%9F%E5%88%99%EF%BC%9A%E7%A7%91%E5%AD%A6%E6%98%AF%E6%8E%A2%E7%B4%A2%E4%B8%96%E7%95%8C%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%8C%E8%80%8C%E6%88%91%E4%BB%AC%E7%9A%84%E4%B8%96%E7%95%8C%E6%98%AF%E4%B8%80%E4%B8%AA%E5%A5%87%E5%A6%99%E7%9A%84%E4%B8%96%E7%95%8C%E3%80%82')" class="share_11" title="分享到搜狐白社会"></a>
+	<a href="javascript:void(0)" onclick="shareme('facebook','341230','','%E6%9C%AC%E5%B9%B4%E5%BA%A6%E6%9C%80%E6%83%8A%E4%BA%BA%E7%9A%84%E7%A7%91%E5%AD%A6%E5%9B%BE%E5%83%8F','%E5%9C%A8%E6%9C%89%E7%9D%80%E4%B8%93%E4%B8%9A%E8%AF%AD%E8%A8%80%E4%B8%8E%E4%B8%A5%E8%B0%A8%E5%BD%A2%E5%BC%8F%E7%9A%84%E7%A7%91%E5%AD%A6%E7%9A%84%E8%83%8C%E5%90%8E%EF%BC%8C%E6%9C%89%E7%9D%80%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E5%8D%B4%E5%AE%B9%E6%98%93%E5%BF%98%E8%AE%B0%E7%9A%84%E5%8E%9F%E5%88%99%EF%BC%9A%E7%A7%91%E5%AD%A6%E6%98%AF%E6%8E%A2%E7%B4%A2%E4%B8%96%E7%95%8C%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%8C%E8%80%8C%E6%88%91%E4%BB%AC%E7%9A%84%E4%B8%96%E7%95%8C%E6%98%AF%E4%B8%80%E4%B8%AA%E5%A5%87%E5%A6%99%E7%9A%84%E4%B8%96%E7%95%8C%E3%80%82')" class="share_12" title="分享到FaceBook"></a>
+	<a href="javascript:void(0)" onclick="shareme('kaixin001','341230','','%E6%9C%AC%E5%B9%B4%E5%BA%A6%E6%9C%80%E6%83%8A%E4%BA%BA%E7%9A%84%E7%A7%91%E5%AD%A6%E5%9B%BE%E5%83%8F','%E5%9C%A8%E6%9C%89%E7%9D%80%E4%B8%93%E4%B8%9A%E8%AF%AD%E8%A8%80%E4%B8%8E%E4%B8%A5%E8%B0%A8%E5%BD%A2%E5%BC%8F%E7%9A%84%E7%A7%91%E5%AD%A6%E7%9A%84%E8%83%8C%E5%90%8E%EF%BC%8C%E6%9C%89%E7%9D%80%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E5%8D%B4%E5%AE%B9%E6%98%93%E5%BF%98%E8%AE%B0%E7%9A%84%E5%8E%9F%E5%88%99%EF%BC%9A%E7%A7%91%E5%AD%A6%E6%98%AF%E6%8E%A2%E7%B4%A2%E4%B8%96%E7%95%8C%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%8C%E8%80%8C%E6%88%91%E4%BB%AC%E7%9A%84%E4%B8%96%E7%95%8C%E6%98%AF%E4%B8%80%E4%B8%AA%E5%A5%87%E5%A6%99%E7%9A%84%E4%B8%96%E7%95%8C%E3%80%82')" class="share_13" title="分享到开心网"></a>
+	<a href="javascript:void(0)" onclick="shareme('qqshuqian','341230','','%E6%9C%AC%E5%B9%B4%E5%BA%A6%E6%9C%80%E6%83%8A%E4%BA%BA%E7%9A%84%E7%A7%91%E5%AD%A6%E5%9B%BE%E5%83%8F','%E5%9C%A8%E6%9C%89%E7%9D%80%E4%B8%93%E4%B8%9A%E8%AF%AD%E8%A8%80%E4%B8%8E%E4%B8%A5%E8%B0%A8%E5%BD%A2%E5%BC%8F%E7%9A%84%E7%A7%91%E5%AD%A6%E7%9A%84%E8%83%8C%E5%90%8E%EF%BC%8C%E6%9C%89%E7%9D%80%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E5%8D%B4%E5%AE%B9%E6%98%93%E5%BF%98%E8%AE%B0%E7%9A%84%E5%8E%9F%E5%88%99%EF%BC%9A%E7%A7%91%E5%AD%A6%E6%98%AF%E6%8E%A2%E7%B4%A2%E4%B8%96%E7%95%8C%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%8C%E8%80%8C%E6%88%91%E4%BB%AC%E7%9A%84%E4%B8%96%E7%95%8C%E6%98%AF%E4%B8%80%E4%B8%AA%E5%A5%87%E5%A6%99%E7%9A%84%E4%B8%96%E7%95%8C%E3%80%82')" class="share_2" title="分享到QQ">分享到QQ</a>
+
+</div>	<div class="sa_main clearfix fff_bgc">
+		<div id="sa_left" class="sa_left closetag">
+			<!-- <div class="sa_bookmark" id="boxad11"></div> -->
+			
+			<div class="sa_right_point" style="display: none;"><a title="关闭文章标签" href="javascript:void(0);" onclick="sidebar()"></a></div>
+			<div class="sa_abstract">在有着专业语言与严谨形式的科学的背后，有着一个简单却容易忘记的原则：科学是探索世界的方法，而我们的世界是一个奇妙的世界。</div>			<div class="sa_title_box">
+				<h1 class="sa_title sa_title_pr">本年度最惊人的科学图像</h1>
+				<div style="display: block;" class="sa_left_info">
+					<ul class="clearfix">
+						<li><span class="sa_blue">{{ page.date | date: '%Y' }}</span>年</li>
+						<li><span class="sa_blue">3</span></a>星</li>
+						<li class="last"><span class="sa_blue">2</span>标签</li>
+					</ul>
+					<div class="opentag" style="display:block"><a href="javascript:void(0);" onclick="sidebar()">打开文章标签</a></div>
+				</div>
+			</div>
+			<div class="sa_author"><span>{{ site.author.name }} 发布于：{{ page.date | date: '%Y年%-m月%-d日' }}</span></div>
+									<div class="sa_content">{{ content }}</div>
+			<div class="sa_copyright clearfix">
+				<div class="clearfix">
+					<div class="sa_cp"><span class="sa_blue">版权声明：</span><br>本文仅用于学习和交流目的。非商业转载请注明作者、出处，并保留文章的完整链接。</div>
+					<ul class="sa_source">
+												<li>原文来源：<a class="sa_blue" rel="next" href="{{ page.url }}" title="{{ page.title | escape }}"></a>git.kooker.jp</a></li>
+						<li class="sa_blue" >原文标题：{{ page.title | escape }}</li>
+						<li>原文地址：<a class="sa_blue" <a class="sa_blue" rel="next" href="{{ page.url }}" title="{{ page.title | escape }}">{{ page.url }}</a></li>
+					</ul>
+					</div>
+				<div class="sa_switch_open sa_switch_close"><a href="javascript:void(0);" onclick="sidebar()">打开文章名片</a></div>
+			</div>
+			{% if page.previous or page.next %}
+			<ul class="sa_next clearfix">
+				{% if page.next %}
+				<li class="next"><a rel="next" href="{{ page.next.url }}" title="{{ page.next.title | escape }}"></a></li>
+				{% endif %}
+				{% if page.previous %}
+				<li class="pre"><a rel="prev" href="{{ page.previous.url }}" title="{{ page.previous.title | escape }}"></a></li>
+				{% endif %}
+			</ul>
+			{% endif %}
+			<div class="sa_comments">
+				<div class="g_comments">
+					<div class="sa_comment_list">{% include JB/comments %}</div>
+				</div>
+			</div>
+		</div>
+		<div id="sa_right" class="sa_right" style="display: none;">
+			<div class="sa_articleinfo top_box">
+				<ul class="clearfix">
+						<li><span class="sa_blue">{{ page.date | date: '%Y' }}</span>年</li>
+						<li><span class="sa_blue">3</span></a>星</li>
+						<li class="last"><span class="sa_blue">2</span>标签</li>
+				</ul>
+				<div class="sa_articletag clearfix">  
+				{% unless page.tags == empty %}
+				{% assign tags_list = page.tags %}
+				{% include JB/tags_list %}
+  				{% endunless %}
+				</div>
+			</div>
+			<div class="sa_right_title"><span>作者</span></div>
+			<div class="sa_articleinfo">
+				<div class="clearfix">
+					<div class="sa_avatar"><a href="http://space.yeeyan.org/u/148195"><img src="s/148195.jpg" alt="" height="80" width="80"></a></div>
+					<div class="sa_text">
+						<p><span><a class="sa_blue" href="http://space.yeeyan.org/u/148195">shirley_yyz</a></span><a href="http://www.yeeyan.org/help/index.html#6.1" target="_blank" title="黑色博士帽3级"><img class="level_img img" src="s/black_3.png"></a></p>
+			    		<p>一个每天恋爱的人</p>
+			    	</div>
+					<ul class="clearfix sa_authorinfo">
+						<li><span class="s">1</span>精选</li>
+						<li class="t"><span>5</span>译文</li>
+						<li class="t"><span>9520</span>读者</li>
+						<li class="t"><span>2</span>粉丝</li>
+						<li class="sa_blue t"><a href="javascript:void(0);" onclick="followed(this,148195)"><span>+</span>关注</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="sa_hotarticles">
+				<div class="sa_right_title_b">相关热门</div>
+								<ul>
+										 
+						<li><a target="_blank" title="10年前预测的2013年是什么样" href="http://select.yeeyan.org/view/235419/341824">10年前预测的2013年是什么样 </a> </li>
+										 
+						<li><a target="_blank" title="给Google文化一支解毒剂" href="http://select.yeeyan.org/view/148530/341465">给Google文化一支解毒剂 </a> </li>
+										 
+						<li><a target="_blank" title="新型量子电脑将与普通电脑展开较量" href="http://select.yeeyan.org/view/370724/341744">新型量子电脑将与普通电脑展开较量 </a> </li>
+										 
+						<li><a target="_blank" title="三个医学幸存者的奇迹——关于医学我们从中能有何启迪" href="http://select.yeeyan.org/view/372022/341028">三个医学幸存者的奇迹——关于医学我们从中能有何启迪 </a> </li>
+										 
+						<li><a target="_blank" title="2012年度最惊人的科学图像" href="http://select.yeeyan.org/view/148195/341230">2012年度最惊人的科学图像 </a> </li>
+										 
+						<li><a target="_blank" title="什么？转基因人类？" href="http://select.yeeyan.org/view/252910/341482">什么？转基因人类？ </a> </li>
+										 
+						<li><a target="_blank" title="用数据阻击杀人狂" href="http://select.yeeyan.org/view/334746/341566">用数据阻击杀人狂 </a> </li>
+										 
+						<li><a target="_blank" title="给互联网过个节日吧！" href="http://select.yeeyan.org/view/235419/341673">给互联网过个节日吧！ </a> </li>
+					
+				</ul>
+			</div>
+		 	<div class="sa_hotarticles">
+				AD1
+			</div>
+			<div class="sa_hotarticles">
+				<div class="sa_right_title_b">最热头条</div>
+				<ul>
+										  
+					<li><a target="_blank" title="如何欣赏蒙德里安" href="http://select.yeeyan.org/view/135550/145631">如何欣赏蒙德里安 </a> </li>
+                      						  
+					<li><a target="_blank" title="从华尔街到街头：一个出租车司机的故事" href="http://select.yeeyan.org/view/351748/341552">从华尔街到街头：一个出租车司机的故事 </a> </li>
+                      						  
+					<li><a target="_blank" title="10年前预测的2013年是什么样" href="http://select.yeeyan.org/view/235419/341824">10年前预测的2013年是什么样 </a> </li>
+                      						  
+					<li><a target="_blank" title="尼采：我们的同代人" href="http://select.yeeyan.org/view/222663/341132">尼采：我们的同代人 </a> </li>
+                      						  
+					<li><a target="_blank" title="给Google文化一支解毒剂" href="http://select.yeeyan.org/view/148530/341465">给Google文化一支解毒剂 </a> </li>
+                      						  
+					<li><a target="_blank" title="子弹是无辜的，自由才是真凶？" href="http://select.yeeyan.org/view/134911/341088">子弹是无辜的，自由才是真凶？ </a> </li>
+                      						  
+					<li><a target="_blank" title="海豹部队如何处理电影里的危机场面" href="http://select.yeeyan.org/view/235419/341496">海豹部队如何处理电影里的危机场面 </a> </li>
+                      						  
+					<li><a target="_blank" title="魅力型领袖究竟魅力何在？" href="http://select.yeeyan.org/view/306115/340066">魅力型领袖究竟魅力何在？ </a> </li>
+                      						  
+					<li><a target="_blank" title="新型量子电脑将与普通电脑展开较量" href="http://select.yeeyan.org/view/370724/341744">新型量子电脑将与普通电脑展开较量 </a> </li>
+                      						  
+					<li><a target="_blank" title="重新发明厨房的女性" href="http://select.yeeyan.org/view/252910/341530">重新发明厨房的女性 </a> </li>
+                      					</ul>
+			</div>
+		</div>
+	</div>
+<script type="text/javascript">
+function sidebar() {
+	var boxtag = $("#sa_right").css("display");
+	if (boxtag == 'none') {
+		$("#sa_right").css("display", "block");
+		$(".sa_right_point").css("display", "block");
+		$(".sa_left_info").css("display", "none");
+		$("#sa_left").removeClass("closetag");
+		$(".sa_main").removeClass("fff_bgc");
+		$(".sa_bookmark").removeClass("sa_bookmark_right");
+		$(".sa_switch_open").removeClass("sa_switch_close");
+		$(".sa_title").removeClass("sa_title_pr");
+		$(".sa_switch_open a").html("关闭文章标签");
+	} else if (boxtag == 'block') {
+		$("#sa_right").css("display", "none");
+		$(".sa_right_point").css("display", "none");
+		$(".sa_left_info").css("display", "block");
+		$("#sa_left").addClass("closetag");
+		$(".sa_main").addClass("fff_bgc");
+		$(".sa_bookmark").addClass("sa_bookmark_right");
+		$(".sa_switch_open").addClass("sa_switch_close");
+		$(".sa_title").addClass("sa_title_pr");
+		$(".sa_switch_open a").html("打开文章标签");
+	};
+}
+
+
+
+</script>
+
+            
+	<div class="s_footer">
+                <p>
+                    Copyright © 2011 - 2012 yeeyan.org
+                </p>
+                <p>
+                    北京译言协力传媒科技有限公司
+                </p>
+                <p>
+                    京ICP证10000013号 京公网安备11010802009636号
+                </p>
+            </div>
+        </div>
+</body></html>

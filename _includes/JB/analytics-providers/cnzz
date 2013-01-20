@@ -1,0 +1,1 @@
+<script type="text/javascript" src="http://s{{ site.JB.analytics.cnzz.server_id }}.cnzz.com/stat.php?id={{ site.JB.analytics.cnzz.web_id }}&web_id={{ site.JB.analytics.cnzz.web_id }}"></script>
